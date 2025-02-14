@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel's Website</title>
+    <link rel="stylesheet" href="styling.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FDBCB4;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            z-index: 10;
+        }
+        .image-button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+            position: relative;
+        }
+        .chicken {
+            position: absolute;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <button class="image-button" onmousedown="changeImage(true)" onmouseup="changeImage(false)">
+        <img id="toggleImage" src="pop2.jpg" alt="Button">
+    </button>
+
+    <script>
+        function changeImage(isPressed) {
+            document.getElementById("toggleImage").src = isPressed ? "pop3.jpg" : "pop2.jpg";
+            if (isPressed) {
+                spawnChicken();
+                playMusic();
+            }
+        }
+
+        function spawnChicken() {
+            const chicken = document.createElement("img");
+            chicken.src = "chicken.png";
+            chicken.className = "chicken";
+            document.body.appendChild(chicken);
+            
+            const button = document.querySelector(".image-button");
+            const rect = button.getBoundingClientRect();
+            
+            chicken.style.left = `${rect.left + rect.width / 2}px`;
+            chicken.style.top = `${rect.top}px`;
+            
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = Math.random() * 300 + 200;
+            const deltaX = Math.cos(angle) * velocity;
+            const deltaY = Math.sin(angle) * velocity;
+            
+            chicken.animate(
+                [
+                    { transform: "translate(0, 0)" },
+                    { transform: `translate(${deltaX}px, ${deltaY}px)` }
+                ],
+                { duration: 1000, easing: "ease-out", fill: "forwards" }
+            );
+            
+            setTimeout(() => chicken.remove(), 1000);
+        }
+        function playMusic() {
+            var music = new Audio('crunch.mp3');
+            music.play();
+            }
+    </script>
+    <button onclick="location.href='index.html'">Back to Main Page</button>
+</body>
+</html>
