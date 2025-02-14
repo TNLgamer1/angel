@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel's Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FDBCB4;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            z-index: 10;
+        }
+        button {
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #483d8b;
+        }
+        #affirmation, #countdown {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .gif-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            opacity: 0.7;
+            animation: floatUp 5s linear infinite;
+        }
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gif-container">
+        <img src="cat.gif" alt="Cute cat gif" width="100">
+    </div>
+    <div class="container">
+        <h2>Angel's Website ‼</h2>
+        <p>Happy Valentine's Day!</p>
+        <p id="affirmation">Click below to get a lovely message!</p>
+        <button onclick="generateAffirmation()">Affirmation Generator 💕</button>
+        <button onclick="countdownToChicago()">Countdown Until I Arrive in Chicago ✈</button>
+        <button onclick="location.href='songs.html'">Songs That Remind Me of You 🎵</button>
+        <p id="countdown"></p>
+    </div>
+
+    <script>
+        const affirmations = [
+            "You're always such a fun person to talk to!",
+            "You have the best smile I've seen",
+            "You're like if the Good Days instrumental by SZA was a person.",
+            "I could see us being the type of people who would talk all day and still have things to yap about in person.",
+            "You're the type of person I'd always go in front of in a Roblox horror game 🤯",
+            "You are perfect just the way you are.",
+            "How is your hair always so shiny? Teach me your ways 🙏",
+            "I love how bright your eyes are :)",
+            "I love how you're always so positive when we talk!",
+            "Here's a flower for you 🌹",
+            "You look like 'Love.' by wave to earth.",
+            "You look like a Cigarettes After Sex song.",
+            "No matter what, you're doing great. Even if things get rough, there's light at the end of the tunnel.",
+            "You have amazing style! Can't wait to see what outfits we pick for each other at the mall.",
+            "I hope you keep moving forward, even if some days its slowly.",
+            "I hope you find happiness in every moment.",
+            "If nobody's told you this yet, I'm proud of you.",
+            "You are a blessing."
+        ];
+        
+        let shuffledAffirmations = [...affirmations];
+        let currentAffirmationIndex = 0;
+    
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+    
+        function generateAffirmation() {
+            if (currentAffirmationIndex === 0) {
+                shuffleArray(shuffledAffirmations);
+            }
+    
+            const affirmationElement = document.getElementById("affirmation");
+            affirmationElement.style.opacity = 0;
+    
+            setTimeout(() => {
+                affirmationElement.textContent = shuffledAffirmations[currentAffirmationIndex];
+                affirmationElement.style.opacity = 1;
+            }, 300);
+    
+            currentAffirmationIndex++;
+    
+            if (currentAffirmationIndex >= shuffledAffirmations.length) {
+                currentAffirmationIndex = 0; // Reset to restart the cycle
+            }
+        }
+    
+
+        function countdownToChicago() {
+            const arrivalDate = new Date("2025-05-08T15:15:00"); // Change this to the correct arrival date
+            const now = new Date();
+            const difference = arrivalDate - now;
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            const countdownElement = document.getElementById("countdown");
+            countdownElement.style.opacity = 0;
+            setTimeout(() => {
+                countdownElement.textContent = `Time until I arrive: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+                countdownElement.style.opacity = 1;
+            }, 300);
+        }
+
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 500);
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
