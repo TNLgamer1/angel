@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs That Remind Me of You</title>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Songs That Remind Me of You 🎵</h2>
+        <div class="song-list">
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5vNRhkKd0yEAg8suGBpjeY?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">This song reminds me of how energetic you are and how much fun we'll have in May!</span>
+            </div>
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4PMqSO5qyjpvzhlLI5GnID?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">You look like if the Good Days instrumental was a person!</span>
+            </div>
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5mtTAScDytxMMqZj14NmlN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">This song reminds me of how easy it is to talk to you. My social battery could be drained all day and your positivity recharges it!</span>
+            </div>
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7DY756WOLyOz2Xnhw4EFiC?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">This song is like us in the moment at prom. No thoughts, just us having fun 💃🕺</span>
+            </div>
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4MeDnO5yA2Zi6IMlVApRci?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">I saw one of your stories with this song and it gives vibes of us going to prom in a nice car 🚗</span>
+            </div>
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5XeFesFbtLpXzIVDNQP22n?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">This is probably one of my favorite songs you've added in our playlist.</span>
+            </div>
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7EAMXbLcL0qXmciM5SwMh2?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">This song feels like us leaving prom and just talking about life while staring at the moon. With just hours before I have to go back to the airportm, we'd probably have the best yap session ever.</span>
+            </div>
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/70YTBH8vOGJNMhy6186yFm?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">This song gives hazy summer vibes to me, I've always associated you with summer ☀</span>
+            </div>
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3xKsf9qdS1CyvXSMEid6g8?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">I can imagine us walking around in the sun to this song. Let me know where the good places in your area are!</span>
+            </div>
+            <div class="song-item">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4f8Mh5wuWHOsfXtzjrJB3t?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <span class="explanation">I remember we were texting while I was listening to this and I felt a bit happier then, since I was still recovering from my arm injury.</span>
+            </div>
+        </div>
+        <button onclick="location.href='Web.html'">Back to Main Page</button>
+    </div>
+
+    <script>
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 500);
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
